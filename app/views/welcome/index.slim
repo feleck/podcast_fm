@@ -1,0 +1,17 @@
+#background
+  header.cl
+    .wrapper_wide
+      = link_to 'Podcast.fm',root_path, id: 'logo'
+      nav
+        ul
+          li
+            = link_to 'Explore', '#'
+          li
+            = link_to 'Sign In', '#'
+          li
+            = link_to 'Create a Podcast', '#'
+  .wrapper_skinny
+    h1  Discover your new favorite podcast,<br>or create your own.
+    = link_to 'Create a podcast', '#', class: "button button_highlight"
+    = link_to 'Explore', '#', class: "button button_highlight"
+

@@ -1,0 +1,194 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ */
+
+$whiteish: #ecf9ed;
+$white: #fefefe;
+$highlight: #af90bb;
+$dark: #2e3919;
+$light_gray: #EDEFF5;
+
+@import 'normalize';
+@import 'welcome';
+// @import 'podcasts';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.wrapper_wide {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;  
+}
+
+.wrapper_skinny {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.cf:before, .cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.button {
+  color: $whiteish;
+  text-decoration: none;
+  font-size: 0.8rem;
+  padding: 0.7em 1em;
+  border-radius: 2rem;
+  outline: none;
+  border: none;
+  display: inline-block;
+  min-width: 8.5rem;
+}
+
+.button_highlight {
+  background: $highlight;
+  transition: background .4s ease-in-out;
+  &:hover {
+    background: darken($highlight, 7.5%);
+  }
+}
+
+.button_white {
+  color: $dark;
+  background: $whiteish;
+  transition: background .4s ease-in-out;  
+  &:hover {
+    background: darken($whiteish, 7.5%);
+  }  
+}
+
+.button_block {
+  display: block;
+  margin: 0 auto;  
+}
+
+#main_header {
+  color: $dark;
+  background: $white;
+  padding: 2.5rem 0;
+  #logo {
+    float: left;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $dark ;
+    text-decoration: none;
+  }
+  nav{
+    float: right;
+    ul {
+      list-style: none;
+      margin: 0;
+      li {
+        display: inline;
+        margin-left: 2.5rem;
+        a{
+          color: $dark;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+#banner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 4rem;
+  h1 {
+    text-align: center;
+    color: $whiteish;
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 8rem 0;
+  }
+}
+
+.pagination:before, .pagination:after {
+  content: " ";
+  display: table;
+}
+
+.pagination:after {
+  clear: both;
+}
+
+.pagination {
+  text-align: center;
+  margin: 1rem 0 5rem 0;
+  a, .previous_page, .current, .next_page {
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: .15rem;
+    line-height: 1.25;
+    background: $light_gray;
+    font-weight: 700;
+    font-size: 0.7rem;
+    font-style: normal;
+    color: $dark;
+    &:hover {
+      background: $highlight;
+      color: $whiteish;
+    }
+
+  }
+  .current {
+    background: $highlight;
+    color: $whiteish;
+  }
+  .disabled {
+    color: #C0C0C0;
+    &:hover {
+      color: #C0C0C0;
+      background: $light_gray;
+    }
+  }
+}
+
+.field {
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+input[type="email"], input[type="text"], input[type="password"], textarea {
+  background: $light_gray;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.25rem 1rem;
+  border: 1px solid darken($light_gray, 5%);
+  border-radius: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+textarea {
+  max-width: 100%;
+  min-height: 8rem;
+}
+
+form {
+  padding: 0 0 5rem 0;
+}
