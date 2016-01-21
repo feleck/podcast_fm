@@ -7,8 +7,10 @@ head
   = csrf_meta_tags
 
 body
-  p.notice= notice
-  p.alert= alert
+  - if notice
+      p.notice= notice
+  - elsif alert
+    p.alert= alert
 
   = yield
 
