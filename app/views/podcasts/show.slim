@@ -1,0 +1,35 @@
+#podcast_show
+  #show_banner
+    .wrapper_skinny
+        h1= @podcast.title
+        p.description= @podcast.description
+        - unless @podcast.itunes.blank?
+          = link_to 'iTunes', @podcast.itunes, class: 'subscribe_link'
+        - unless @podcast.stitcher.blank?          
+          = link_to 'Stitcher', @podcast.stitcher, class: 'subscribe_link'
+        - unless @podcast.podbay.blank?
+          = link_to 'PodBay', @podcast.podbay, class: 'subscribe_link'
+
+  #breadcrumb
+    = link_to podcasts_path
+      | All Podcasts
+      span /
+      | The Facerocker Podcast
+
+#podcasts.cf
+  .wrapper
+    ul
+      - @podcasts.each do |podcast|
+        = link_to podcast do
+          li
+            = image_tag 'bullettrain.jpg', alt: 'bullet train'
+            .podcast_overview
+              h2= podcast.title
+              p.episode_count 1 Episode
+  
+.pagination
+  span.previous_page.disabled Previous
+  em.current 1
+  = link_to '2', '#'
+  = link_to 'Next', '#', class: 'next_page'
+ 

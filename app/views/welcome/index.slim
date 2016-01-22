@@ -5,15 +5,15 @@
       nav
         ul
           - unless podcast_signed_in?
-            li= link_to 'Explore', '#'
+            li= link_to 'Explore', podcasts_path
             li= link_to 'Sign In', new_podcast_session_path
             li= link_to 'Create a Podcast', new_podcast_registration_path
           - else
-            li= link_to 'Dashboard', '#'
-            li= link_to 'Explore', '#'
+            li= link_to 'Dashboard', edit_podcast_registration_path
+            li= link_to 'Explore', podcasts_path
             li= link_to 'Sign Out', destroy_podcast_session_path, method: :delete
   .wrapper_skinny
-    h1  Discover your new favorite podcast,<br>or create your own.
+    h1  Discover your new favorite podcast,<br />or create your own.
     = link_to 'Create a Podcast', new_podcast_registration_path, class: "button button_highlight"
-    = link_to 'Explore', '#', class: "button button_highlight"
+    = link_to 'Explore', podcasts_path, class: "button button_white"
 
