@@ -1,0 +1,16 @@
+.wrapper_skinny
+  h2 New Episode
+  #form
+    = form_for([@podcast, @episode]) do |f|
+      .field
+        = f.label :title
+        br/
+        = f.text_field :title, autofocus: true
+
+      .field
+        = f.label :description
+        br/
+        = f.text_area :description
+
+      .actions
+        = f.submit 'Create Episode', class: 'button button_highlight button_block'

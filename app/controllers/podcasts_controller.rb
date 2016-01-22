@@ -5,7 +5,8 @@ class PodcastsController < ApplicationController
   end
   
   def show
-    @podcast = Podcast.find(params[:id])  
+    @podcast = Podcast.find(params[:id])
+    @episodes = Episode.where(podcast_id: @podcast).order("created_at DESC")
   end
 
 end

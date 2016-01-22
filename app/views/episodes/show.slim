@@ -1,0 +1,44 @@
+#podcast_show
+  #show_banner
+    .wrapper_skinny
+      h1= @podcast.title
+      p.description= @podcast.description
+      - unless @podcast.itunes.blank?
+        = link_to 'iTunes', @podcast.itunes, class: 'subscribe_link'
+      - unless @podcast.stitcher.blank?          
+        = link_to 'Stitcher', @podcast.stitcher, class: 'subscribe_link'
+      - unless @podcast.podbay.blank?
+        = link_to 'PodBay', @podcast.podbay, class: 'subscribe_link'
+  
+  #breadcrumb
+    = link_to podcasts_path
+      | All Podcasts
+      span 
+        | /
+      = link_to @podcast.title, @podcast
+      span 
+        | /
+      = @episode.title
+
+  #episode_content
+    .wrapper_skinny
+      = image_tag '2273_contributor.jpg', alt: 'contributor1', class: "current_episode_thumbnail"
+      .podcast_overview
+        h2= @episode.title
+        p.description= @episode.description
+
+  - @episodes.each do |episode|
+    li.cf
+      .episode_thumbnail
+        = link_to podcast_episode_path(@podcast, episode)
+          li
+            = image_tag '2273_contributor.jpg', alt: 'contributor1'
+      .episode_overview
+        h2= link_to episode.title, podcast_episode_path(@podcast, episode)
+        p.description= episode.description
+
+.pagination
+  span.previous_page.disabled Previous
+  em.current 1
+  = link_to '2', '#'
+  = link_to 'Next', '#', class: 'next_page'
