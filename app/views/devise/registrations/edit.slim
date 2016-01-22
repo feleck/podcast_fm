@@ -1,74 +1,82 @@
-.wrapper_skinny
-  h2 
-    | Edit 
-    = resource_name.to_s.humanize
+#podcast_show
+  #show_banner
+    .wrapper_skinny
+      h1 Facerocker Podcast Dashboard
 
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-    = devise_error_messages!
+  #links
+    .wrapper_skinny
+      ul
+        li= link_to 'Episodes', '#'
+        li= link_to "New Episode", '#'
+        li= link_to 'Account Settings', edit_podcast_registration_path, class: 'current'
+        li= link_to 'View Podcast', '#'
 
-    .field
-      = f.label :title 
-      br/
-      = f.text_field :title, autofocus: true
-    
-    .field
-      = f.label :description 
-      br/
-      = f.text_area :description
+  #form
+    .wrapper_skinny
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+        = devise_error_messages!
 
-    .field
-      = f.label :email 
-      br/
-      = f.email_field :email
+        .field
+          = f.label :title 
+          br/
+          = f.text_field :title, autofocus: true
+        
+        .field
+          = f.label :description 
+          br/
+          = f.text_area :description
 
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      div 
-        Currently waiting confirmation for: 
-        = resource.unconfirmed_email
+        .field
+          = f.label :email 
+          br/
+          = f.email_field :email
 
-    h2 Links
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          div 
+            Currently waiting confirmation for: 
+            = resource.unconfirmed_email
 
-    .field
-      = f.label :itunes 
-      br/
-      = f.text_field :itunes
+        h2 Links
 
-    .field
-      = f.label :stitcher
-      br/
-      = f.text_field :stitcher
+        .field
+          = f.label :itunes 
+          br/
+          = f.text_field :itunes
 
-    .field
-      = f.label :podbay 
-      br/
-      = f.text_field :podbay
-   
-    .field
-      = f.label :password 
-      i 
-        | (leave blank if you don't want to change it)  
-        br/
-      = f.password_field :password, autocomplete: "off"
-    
-    .field
-      = f.label :password_confirmation 
-      br/
-      = f.password_field :password_confirmation, autocomplete: "off"
+        .field
+          = f.label :stitcher
+          br/
+          = f.text_field :stitcher
 
-    .field
-      = f.label :current_password 
-      i 
-        |(we need your current password to confirm your changes) 
-        br/
-      = f.password_field :current_password, autocomplete: "off"
-    
-    .actions
-      = f.submit "Update"
+        .field
+          = f.label :podbay 
+          br/
+          = f.text_field :podbay
+       
+        .field
+          = f.label :password 
+          i 
+            | (leave blank if you don't want to change it)  
+            br/
+          = f.password_field :password, autocomplete: "off"
+        
+        .field
+          = f.label :password_confirmation 
+          br/
+          = f.password_field :password_confirmation, autocomplete: "off"
 
-  h3 Cancel my account
+        .field
+          = f.label :current_password 
+          i 
+            |(we need your current password to confirm your changes) 
+            br/
+          = f.password_field :current_password, autocomplete: "off"
+        
+        .actions
+          = f.submit "Update", class: 'button button_highlight button_block'
 
-  p 
-    | Unhappy? 
-    = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
+      h3 Cancel my account
 
-  = link_to "Back", :back
+      p 
+        | Unhappy? 
+        = button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete
