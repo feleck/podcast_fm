@@ -8,7 +8,7 @@
   #links
     .wrapper_skinny
       ul
-        li= link_to 'Episodes', authenticated_root_path
+        li= link_to 'Episodes', root_path
         li= link_to "New Episode", new_podcast_episode_path(@podcast)
         li.current Account Settings
         li= link_to 'View Podcast', podcast_path(current_podcast)
