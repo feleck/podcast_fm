@@ -16,6 +16,7 @@ gem 'puma'
 gem 'slim'
 gem 'devise'
 gem 'paperclip'
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'byebug'
