@@ -19,6 +19,16 @@ class EpisodesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    
+  end
+
   private
 
   def find_podcast

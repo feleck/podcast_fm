@@ -1,15 +1,17 @@
 #podcast_show
   #show_banner
     .wrapper_skinny
-      h1 Facerocker Podcast Dashboard
+      h1
+        = @podcast.title
+        |  Dashboard
 
   #links
     .wrapper_skinny
       ul
-        li= link_to 'Episodes', '#'
-        li= link_to "New Episode", '#'
-        li= link_to 'Account Settings', edit_podcast_registration_path, class: 'current'
-        li= link_to 'View Podcast', '#'
+        li= link_to 'Episodes', authenticated_root_path
+        li= link_to "New Episode", new_podcast_episode_path(@podcast)
+        li.current Account Settings
+        li= link_to 'View Podcast', podcast_path(current_podcast)
 
   #form
     .wrapper_skinny
