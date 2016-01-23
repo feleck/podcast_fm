@@ -18,6 +18,11 @@
         = f.email_field :email
 
       .field
+        = f.label :thumbnail
+        br/
+        = f.file_field :thumbnail
+          
+      .field
         = f.label :password
         - if @minimum_password_length
           em

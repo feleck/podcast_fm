@@ -7,7 +7,7 @@
       - @podcasts.each do |podcast|
         = link_to podcast do
           li
-            = image_tag 'bullettrain.jpg', alt: 'bullet train'
+            = image_tag podcast.thumbnail.url(:medium)
             .podcast_overview
               h2= podcast.title
               p.episode_count 1 Episode

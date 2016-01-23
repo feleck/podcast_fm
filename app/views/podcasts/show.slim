@@ -24,7 +24,7 @@
           li.cf
             .episode_thumbnail
               = link_to podcast_episode_path(@podcast, episode)
-                = image_tag '2273_contributor.jpg', alt: 'contributor1'
+                = image_tag episode.episode_thumbnail.url(:medium)
             .episode_overview
               h2= link_to episode.title, podcast_episode_path(@podcast, episode)
               p.description= truncate(episode.description, length: 150)
