@@ -1,16 +1,15 @@
-.wrapper_skinny
-  h2 New Episode
+#podcast_show
+  #show_banner
+    .wrapper_skinny
+      h1= @podcast.title
+  #links
+    .wrapper_skinny
+      ul
+        li= link_to 'Episodes', podcasts_path
+        li= link_to 'New Episode', new_podcast_episode_path(@podcast), class: 'current'
+        li
+
   #form
-    = form_for([@podcast, @episode]) do |f|
-      .field
-        = f.label :title
-        br/
-        = f.text_field :title, autofocus: true
-
-      .field
-        = f.label :description
-        br/
-        = f.text_area :description
-
-      .actions
-        = f.submit 'Create Episode', class: 'button button_highlight button_block'
+    .wrapper_skinny
+      = render 'form'
+  
